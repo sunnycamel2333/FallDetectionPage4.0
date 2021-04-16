@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>跌倒系统设备状态修改</title>
+  <meta name="description" content="设备状态修改">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{{ url_for('static',filename='assets/images/logo.png') }}">
+
+  <!-- Bootstrap CSS -->
+  <link href="{{ url_for('static',filename='assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+
+  <!-- Font Awesome CSS -->
+  <link href="{{ url_for('static',filename='assets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+
+  <!-- Custom CSS -->
+  <link href="{{ url_for('static',filename='assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+
+  <!-- BEGIN CSS for this page -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" />
+  <!-- END CSS for this page -->
+
+</head>
+
+<body class="adminbody">
+
+  <div id="main">
+
+    <!-- top bar navigation -->
+    <div class="headerbar">
+
+      <!-- LOGO -->
+      <div class="headerbar-left">
+        <a href="/index/" class="logo"><img alt="Logo" src="{{ url_for('static',filename='logo.png') }}" /> <span>跌倒检测系统</span></a>
+      </div>
+
+      <nav class="navbar-custom">
+
+        <ul class="list-inline float-right mb-0">
+
+          <li class="list-inline-item dropdown notif">
+            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+              <i class="fa fa-fw fa-question-circle"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-arrow-success dropdown-lg">
+              <!-- item-->
+              <div class="dropdown-item noti-title">
+                <h5><small>帮助和支持</small></h5>
+              </div>
+
+              <!-- item-->
+              <a target="_blank" href="#" class="dropdown-item notify-item">
+                <p class="notify-details ml-0">
+                  <b>Do you want custom development to integrate this theme?</b>
+                  <span>联系我们</span>
+                </p>
+              </a>
+
+              <!-- item-->
+
+              <!-- All-->
+              <a title="Clcik to visit Pike Admin Website" target="_blank" href="#" class="dropdown-item notify-item notify-all">
+                <i class="fa fa-link"></i> 跌倒检测系统
+              </a>
+
+            </div>
+          </li>
+
+          <li class="list-inline-item dropdown notif">
+            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+              <i class="fa fa-fw fa-envelope-o"></i><span class="notif-bullet"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-arrow-success dropdown-lg">
+              <!-- item-->
+              <div class="dropdown-item noti-title">
+                <h5><small><span class="label label-danger pull-xs-right">12</span>未读消息</small></h5>
+              </div>
+
+              <!-- item-->
+              <a href="#" class="dropdown-item notify-item">
+                <p class="notify-details ml-0">
+                  <b>Jokn Doe</b>
+                  <span>New message received</span>
+                  <small class="text-muted">2 minutes ago</small>
+                </p>
+              </a>
+
+              <!-- item-->
+              <a href="#" class="dropdown-item notify-item">
+                <p class="notify-details ml-0">
+                  <b>Michael Jackson</b>
+                  <span>New message received</span>
+                  <small class="text-muted">15 minutes ago</small>
+                </p>
+              </a>
+
+              <!-- item-->
+              <a href="#" class="dropdown-item notify-item">
+                <p class="notify-details ml-0">
+                  <b>Foxy Johnes</b>
+                  <span>New message received</span>
+                  <small class="text-muted">Yesterday, 13:30</small>
+                </p>
+              </a>
+
+              <!-- All-->
+              <a href="#" class="dropdown-item notify-item notify-all">
+                View All
+              </a>
+
+            </div>
+          </li>
+
+          <li class="list-inline-item dropdown notif">
+            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+              <i class="fa fa-fw fa-bell-o"></i><span class="notif-bullet"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-lg">
+              <!-- item-->
+              <div class="dropdown-item noti-title">
+                <h5><small><span class="label label-danger pull-xs-right">5</span>Allerts</small></h5>
+              </div>
+
+              <!-- item-->
+              <a href="#" class="dropdown-item notify-item">
+                <div class="notify-icon bg-faded">
+                  <img src="{{ url_for('static',filename='assets/images/avatars/avatar2.png') }}" alt="img" class="rounded-circle img-fluid">
+                </div>
+                <p class="notify-details">
+                  <b>John Doe</b>
+                  <span>User registration</span>
+                  <small class="text-muted">3 minutes ago</small>
+                </p>
+              </a>
+
+              <!-- item-->
+              <a href="#" class="dropdown-item notify-item">
+                <div class="notify-icon bg-faded">
+                  <img src="{{ url_for('static',filename='assets/images/avatars/avatar3.png') }}" alt="img" class="rounded-circle img-fluid">
+                </div>
+                <p class="notify-details">
+                  <b>Michael Cox</b>
+                  <span>Task 2 completed</span>
+                  <small class="text-muted">12 minutes ago</small>
+                </p>
+              </a>
+
+              <!-- item-->
+              <a href="#" class="dropdown-item notify-item">
+                <div class="notify-icon bg-faded">
+                  <img src="{{ url_for('static',filename='assets/images/avatars/avatar4.png') }}" alt="img" class="rounded-circle img-fluid">
+                </div>
+                <p class="notify-details">
+                  <b>Michelle Dolores</b>
+                  <span>New job completed</span>
+                  <small class="text-muted">35 minutes ago</small>
+                </p>
+              </a>
+
+              <!-- All-->
+              <a href="#" class="dropdown-item notify-item notify-all">
+                View All Allerts
+              </a>
+
+            </div>
+          </li>
+
+          <li class="list-inline-item dropdown notif">
+            <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+              <img src="{{ url_for('static',filename='assets/images/avatars/admin.png') }}" alt="Profile image" class="avatar-rounded">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+              <!-- item-->
+              <div class="dropdown-item noti-title">
+                <h5 class="text-overflow"><small>您好，管理员</small> </h5>
+              </div>
+
+              <!-- item-->
+              <a href="/pro-profile/" class="dropdown-item notify-item">
+                <i class="fa fa-user"></i> <span>个人信息</span>
+              </a>
+
+              <!-- item-->
+              <a href="#" class="dropdown-item notify-item">
+                <i class="fa fa-power-off"></i> <span>登出</span>
+              </a>
+
+              <!-- item-->
+              <a target="_blank" href="#" class="dropdown-item notify-item">
+                <i class="fa fa-external-link"></i> <span>跌倒检测系统</span>
+              </a>
+            </div>
+          </li>
+
+        </ul>
+
+        <ul class="list-inline menu-left mb-0">
+          <li class="float-left">
+            <button class="button-menu-mobile open-left">
+              <i class="fa fa-fw fa-bars"></i>
+            </button>
+          </li>
+        </ul>
+
+      </nav>
+
+  </div>
+  <!-- End Navigation -->
+
+  <!-- Left Sidebar -->
+  <div class="left main-sidebar">
+
+    <div class="sidebar-inner leftscroll">
+
+      <div id="sidebar-menu">
+
+        <ul>
+
+          <li class="submenu">
+            <a class="active" href="/host/"><i class="fa fa-fw fa-bars"></i><span> &nbsp; 数据面板 &nbsp;
+              </span> </a>
+          </li>
+
+          <li class="submenu">
+            <a href="/index/"><i class="fa fa-fw fa-area-chart"></i><span> &nbsp; 跌倒预警 &nbsp;
+              </span> </a>
+          </li>
+
+          <li class="submenu">
+            <a href="#"><i class="fa fa-fw fa-tv"></i> <span>&nbsp; 用户信息 &nbsp;</span><span class="menu-arrow"></span></a>
+            <ul class="list-unstyled">
+              <li><a href="/charts/">用户信息</a></li>
+              <li><a href="/tables-basic/">设备运行环境信息</a></li>
+
+            </ul>
+          </li>
+          <li class="submenu">
+            <a href="#"><i class="fa fa-fw fa-table"></i><span> &nbsp;系统管理 &nbsp; </span> <span class="menu-arrow"></span></a>
+            <ul class="list-unstyled">
+              <li><a href="/ui-cards/">用户权限管理</a></li>
+              <li><a href="/ui-alerts/">设备运行环境设置</a></li>
+            </ul>
+          </li>
+          <li class="submenu">
+            <a href="#"><i class="fa fa-fw fa-copy"></i><span>&nbsp;管理页面 &nbsp; </span> <span class="menu-arrow"></span></a>
+            <ul class="list-unstyled">
+              <li><a href="/ui-collapse/">视频记录</a></li>
+
+            </ul>
+          </li>
+
+        </ul>
+
+        <div class="clearfix"></div>
+
+      </div>
+
+      <div class="clearfix"></div>
+
+    </div>
+
+  </div>
+  <!-- End Sidebar -->
+
+  <div class="content-page">
+
+    <!-- Start content -->
+    <div class="content">
+
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="breadcrumb-holder">
+              <h1 class="main-title float-left"></h1>
+              <ol class="breadcrumb float-right">
+                <li class="breadcrumb-item">&nbsp;信息&nbsp;</li>
+                <li class="breadcrumb-item active">&nbsp;设备状态&nbsp;</li>
+              </ol>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+        <!-- end row -->
+
+        <!----------reinfo----------->
+
+        <div class="container">
+
+          <form class="well form-horizontal" method="post" id="contact_form" action="/device_update/">
+            <fieldset>
+
+              <!-- Select Basic -->
+
+              <div class="form-group">
+                <label class="col-md-4 control-label">环境光照强度</label>
+                <div class="col-md-4 selectContainer">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                    <select name="illum" class="form-control selectpicker">
+                      <option value=" ">Please Select</option>
+                      <option>低等强度</option>
+                      <option>中等强度</option>
+                      <option>高等强度</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- Select Basic -->
+
+              <div class="form-group">
+                <label class="col-md-4 control-label">监护主体数</label>
+                <div class="col-md-4 selectContainer">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                    <select name="detectnum" class="form-control selectpicker">
+                      <option value=" ">Please Select</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- Select Basic -->
+
+              <div class="form-group">
+                <label class="col-md-4 control-label">摄像头角度</label>
+                <div class="col-md-4 selectContainer">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                    <select name="camera" class="form-control selectpicker">
+                      <option  value=" ">Please Select</option>
+                      <option>俯视</option>
+                      <option>平视</option>
+                      <option>仰视</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- Success message -->
+              <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
+
+              <!-- Button -->
+              <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                  <button type="submit" class="btn btn-warning">确认修改<span class="glyphicon glyphicon-send"></span></button>
+                    <span class="tel-warn pass-err">
+						{% for message in get_flashed_messages() %}
+							<em>
+								{{ message }}
+							</em><i class="icon-warn"></i>
+						{% endfor %}
+                  </span>
+                </div>
+              </div>
+
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+      <!-------------- reinfo ------------>
+    </div>
+
+  </div>
+  <!-- END container-fluid -->
+
+  </div>
+  <!-- END content -->
+
+  </div>
+  <!-- END content-page -->
+
+  <footer class="footer">
+    <span class="text-right">
+      Copyright <a target="_blank" href="#">xddhotel.cn&nbsp;</a>
+    </span>
+    <span class="float-right">
+      小叮当科技<a href="http://www.cssmoban.com/" title="" target="_blank">&nbsp;</a> </span>
+  </footer>
+
+  </div>
+  <!-- END main -->
+
+  <script src="{{ url_for('static',filename='assets/js/modernizr.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='assets/js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='assets/js/moment.min.js') }}"></script>
+
+  <script src="{{ url_for('static',filename='assets/js/popper.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='assets/js/bootstrap.min.js') }}"></script>
+
+  <script src="{{ url_for('static',filename='assets/js/detect.js') }}"></script>
+  <script src="{{ url_for('static',filename='assets/js/fastclick.js') }}"></script>
+  <script src="{{ url_for('static',filename='assets/js/jquery.blockUI.js') }}"></script>
+  <script src="{{ url_for('static',filename='assets/js/jquery.nicescroll.js') }}"></script>
+
+  <!-- App js -->
+  <script src="{{ url_for('static',filename='assets/js/pikeadmin.js') }}"></script>
+
+  <!-- BEGIN Java Script for this page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+  <!-- BEGIN Java Script for this page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+  <!-- END Java Script for this page -->
+  <style>
+    #success_message {
+      display: none;
+    }
+
+    .button {
+      background: #E27575;
+      border: none;
+      padding: 10px 25px 10px 25px;
+      color: #FFF;
+      box-shadow: 1px 1px 5px #B6B6B6;
+      border-radius: 3px;
+      text-shadow: 1px 1px 1px #9E3F3F;
+      cursor: pointer;
+    }
+
+    .basic-grey .button:hover {
+      background: #CF7A7A
+    }
+  </style>
+</body>
+
+</html>
